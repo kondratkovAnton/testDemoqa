@@ -52,7 +52,7 @@ public class DemoqaTest {
         dateOfBirthMonth.click();
         WebElement dateOfBirthYear = driver.findElement(By.cssSelector(".react-datepicker__year-select [value='1989']"));
         dateOfBirthYear.click();
-        WebElement dateOfBirthDay = driver.findElement(By.cssSelector("[aria-label*=\"Choose Thursday, August 10th, 1989\"]"));
+        WebElement dateOfBirthDay = driver.findElement(By.cssSelector("[aria-label*='Choose Thursday, August 10th, 1989']"));
         dateOfBirthDay.click();
         WebElement subjectsAutocomplete = driver.findElement(By.id("subjectsInput"));
         WebElement hobbiesCheckbox = driver.findElement(By.id("hobbies-checkbox-1"));
