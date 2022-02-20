@@ -44,7 +44,7 @@ public class DemoqaTest {
         WebElement firstNameInput = driver.findElement(By.id("firstName"));
         WebElement lastNameInput = driver.findElement(By.id("lastName"));
         WebElement emailInput = driver.findElement(By.id("userEmail"));
-        WebElement genderRadiobutton = driver.findElement(By.cssSelector("input[name='gender'][value='Male']"));
+        WebElement genderRadiobutton = driver.findElement(By.xpath("//input[@name='gender' and @value='Male']//.."));
         WebElement mobileNumberInput = driver.findElement(By.id("userNumber"));
         WebElement dateOfBirthInput = driver.findElement(By.id("dateOfBirthInput"));
         dateOfBirthInput.click();
@@ -65,7 +65,7 @@ public class DemoqaTest {
         firstNameInput.sendKeys("Ivan");
         lastNameInput.sendKeys("Ivanov");
         emailInput.sendKeys("ivan.ivanov@mail.ru");
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", genderRadiobutton);
+        genderRadiobutton.click();
         mobileNumberInput.sendKeys("0123456789");
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", subjectsAutocomplete);
         subjectsAutocomplete.sendKeys("English");
@@ -83,16 +83,16 @@ public class DemoqaTest {
         submit.click();
 
         softAssertions.assertThat(driver.findElement(By.id("example-modal-sizes-title-lg")).getText()).isEqualTo("Thanks for submitting the form");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"Ivan Ivanov\"]")).getText()).isEqualTo("Ivan Ivanov");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"ivan.ivanov@mail.ru\"]")).getText()).isEqualTo("ivan.ivanov@mail.ru");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"Male\"]")).getText()).isEqualTo("Male");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"0123456789\"]")).getText()).isEqualTo("0123456789");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"10 August,1989\"]")).getText()).isEqualTo("10 August,1989");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"English\"]")).getText()).isEqualTo("English");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"Sports\"]")).getText()).isEqualTo("Sports");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"pictureForSelenium.jfif\"]")).getText()).isEqualTo("pictureForSelenium.jfif");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"14, Santhome High Road\"]")).getText()).isEqualTo("14, Santhome High Road");
-        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()=\"NCR Delhi\"]")).getText()).isEqualTo("NCR Delhi");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='Ivan Ivanov']")).getText()).isEqualTo("Ivan Ivanov");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='ivan.ivanov@mail.ru']")).getText()).isEqualTo("ivan.ivanov@mail.ru");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='Male']")).getText()).isEqualTo("Male");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='0123456789']")).getText()).isEqualTo("0123456789");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='10 August,1989']")).getText()).isEqualTo("10 August,1989");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='English']")).getText()).isEqualTo("English");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='Sports']")).getText()).isEqualTo("Sports");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='pictureForSelenium.jfif']")).getText()).isEqualTo("pictureForSelenium.jfif");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='14, Santhome High Road']")).getText()).isEqualTo("14, Santhome High Road");
+        softAssertions.assertThat(driver.findElement(By.xpath("//td[text()='NCR Delhi']")).getText()).isEqualTo("NCR Delhi");
         softAssertions.assertAll();
     }
 
